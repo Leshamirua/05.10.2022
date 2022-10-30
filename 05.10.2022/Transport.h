@@ -14,6 +14,6 @@ public:
 	virtual void Init();
 	virtual void Print();
 	virtual void Waste();
-	virtual ~Transport(); 
+	virtual ~Transport()=0; 
 };
 
