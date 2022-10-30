@@ -2,8 +2,16 @@
 
 void cycle::Init()
 {
-	cout << "\nName: ";
-	cin >> name;
+	char buf[20];
+	cout << "Enter model --> ";
+	cin >> buf;
+	if (name != nullptr) {
+		cout << name << "delete!";
+		delete[]name;
+	}
+	name = new char[strlen(buf) + 1];
+	strcpy_s(name, strlen(buf) + 1, buf);
+
 	cout << "\nDistance: ";
 	cin >> distance;
 	cout << "\nNO FUEL, WORK WITH LEGS!!!";

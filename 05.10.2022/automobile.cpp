@@ -1,8 +1,17 @@
 #include "automobile.h"
 void automobile::Init()
 {
-	cout << "\nName: ";
-	cin >> name;
+
+	char buf[20];
+    cout << "Enter model --> ";
+    cin>>buf;
+      if (name != nullptr) {
+        cout << name << "delete!";
+        delete[]name;
+      }
+	name = new char[strlen(buf) + 1];
+    strcpy_s(name, strlen(buf) + 1, buf);
+
 	cout << "\nWaste on 100: ";
 	cin >> waste_on_100;
 	cout << "\nDistance: ";

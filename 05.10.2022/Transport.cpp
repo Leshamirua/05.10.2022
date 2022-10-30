@@ -1,8 +1,9 @@
 #include "Transport.h"
 using namespace std;
-Transport::Transport(string n, double w_on_100, double dis, double waste)
+Transport::Transport(char* n, double w_on_100, double dis, double waste)
 {
-	name = n;
+	name = new char[strlen(n) + 1];
+	strcpy_s(name, strlen(n) + 1, n);
 	waste_on_100 = w_on_100;
 	distance = dis;
 	this->waste = waste;
@@ -21,4 +22,10 @@ void Transport::Print()
 void Transport::Waste()
 {
 	cout << "nothing";
+}
+
+Transport::~Transport()
+{
+	delete[] name; 
+	cout << "des";
 }
